@@ -1,0 +1,6 @@
+{
+  "translation": {
+    "hello": "Ahoy World",
+    "placeholder": "Your number is {{number}}"
+  }
+}
