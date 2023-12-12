@@ -8,7 +8,10 @@
     "test": "test"
   },
   "dependencies": {
+    "@fastify/formbody": "^7.4.0",
     "countries-list": "^3.0.6",
+    "fastify": "^4.24.3",
+    "fastify-plugin": "^4.5.1",
     "google-libphonenumber": "^3.2.33",
     "i18next": "^23.7.8"
   },

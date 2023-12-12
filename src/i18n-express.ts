@@ -1,9 +1,12 @@
-import i18next, { InitOptions } from "i18next";
+import i18next, { InitOptions, TFunction } from "i18next";
 import { Request, Response, NextFunction } from "express";
 import { getCountry } from "./helper";
 
-const i18nMiddleware = (defaultConfig: InitOptions) => {
-  return (req: LocalizedRequest, _: Response, next: NextFunction) => {
+const i18nMiddleware: (
+  defaultConfig: InitOptions,
+) => (req: LocalizedRequest, _: Response, next: NextFunction) => void = 
+(  defaultConfig) => {
+  return (req, _, next): void => {
     let lng;
     if (req.body.From) {
       lng = getCountry(req.body.From)?.languages[0];
@@ -27,6 +30,6 @@ const i18nMiddleware = (defaultConfig: InitOptions) => {
 export default i18nMiddleware;
 
 // Define interface for custom request type that includes the t function from i18n
-interface LocalizedRequest extends Request {
-  t?: (key: string, options?: Record<string, unknown>) => string;
+export interface LocalizedRequest extends Request {
+  t: TFunction;
 }
