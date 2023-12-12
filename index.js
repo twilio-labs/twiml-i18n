@@ -1,9 +1,9 @@
-const expressMiddleware = require('./dist/src/i18n-express');
-const fastifyMiddleware = require('./dist/src/i18n-fastify');
+const expressMiddleware = require("./dist/src/i18n-express");
+const fastifyMiddleware = require("./dist/src/i18n-fastify");
 
 module.exports = {
-    expressMiddleware,
-    fastifyMiddleware
-}
+  expressMiddleware,
+  fastifyMiddleware,
+};
 
 export default expressMiddleware;

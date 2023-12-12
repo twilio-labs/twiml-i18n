@@ -1,6 +1,5 @@
 # TwiML i18n Support Middleware
 
-
 TwiML i18n Middleware is a lightweight Express.js middleware designed to facilitate internationalization (i18n) of Twilio Markup Language (TwiML) responses for Twilio webhook endpoints. The middleware leverages i18next to provide translation capabilities based on the country associated with the incoming phone number.
 
 ## Features
@@ -9,8 +8,8 @@ TwiML i18n Middleware is a lightweight Express.js middleware designed to facilit
 - Integrates cleanly with Express
 - Build on [`i18next`](https://github.com/i18next/i18next) and supports translation features, including namespaces, variables, and pluralization.
 
-
 ## Installation
+
 To install the middleware, run:
 
 ```
@@ -20,6 +19,7 @@ yarn add twiml-i18n-middleware
 ```
 
 ## Usage
+
 First, setup your internationalization resources and configure the `i18n` middleware for use with your Express application.
 
 ```js
@@ -36,13 +36,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Setup i18n middleware
 app.use(
   i18nMiddleware({
-    fallbackLng: 'en',
+    fallbackLng: "en",
     resources: {
-      en: { translation: require('./locale/en.json') },
-      es: { translation: require('./locale/es.json') },
+      en: { translation: require("./locale/en.json") },
+      es: { translation: require("./locale/es.json") },
       // Add more languages as needed
     },
-  })
+  }),
 );
 
 // Handle incoming messages
@@ -72,7 +72,9 @@ Example content for `./locale/en.json`:
 ```
 
 ## License
+
 This project is open-source and available under the Apach 2.0 License.
 
 ## Contributions
+
 Contributions are welcome! Please ensure you follow the project's coding conventions and submit your pull requests for review.

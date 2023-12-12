@@ -4,8 +4,9 @@ import { getCountry } from "./helper";
 
 const i18nMiddleware: (
   defaultConfig: InitOptions,
-) => (req: LocalizedRequest, _: Response, next: NextFunction) => void = 
-(  defaultConfig) => {
+) => (req: LocalizedRequest, _: Response, next: NextFunction) => void = (
+  defaultConfig,
+) => {
   return (req, _, next): void => {
     let lng;
     if (req.body.From) {
