@@ -3,13 +3,11 @@ import server from "../examples/express-server";
 
 describe("POST /webhook", () => {
   it("responds with XML and correct TwiML response for US numbers", async () => {
-    const fakeData = {
-      From: "+1234567890",
-    };
-
     const response = await request(server)
       .post("/webhook")
-      .send(fakeData)
+      .send({
+        From: "+1234567890",
+      })
       .type("form");
 
     expect(response.status).toBe(200);
@@ -21,13 +19,11 @@ describe("POST /webhook", () => {
   });
 
   it("responds with XML and correct TwiML response for UK numbers", async () => {
-    const fakeData = {
-      From: "+1234567890",
-    };
-
     const response = await request(server)
       .post("/webhook")
-      .send(fakeData)
+      .send({
+        From: "+1234567890",
+      })
       .type("form");
 
     expect(response.status).toBe(200);
@@ -39,13 +35,11 @@ describe("POST /webhook", () => {
   });
 
   it("responds with XML and correct TwiML response for DE numbers", async () => {
-    const fakeData = {
-      From: "+4915112341234",
-    };
-
     const response = await request(server)
       .post("/webhook")
-      .send(fakeData)
+      .send({
+        From: "+4915112341234",
+      })
       .type("form");
 
     expect(response.status).toBe(200);
