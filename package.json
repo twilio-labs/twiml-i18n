@@ -1,6 +1,6 @@
 {
   "name": "twilio-i18n",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "I18N your TwiML responses",
   "main": "index.js",
   "directories": {
@@ -8,14 +8,13 @@
     "test": "test"
   },
   "dependencies": {
-    "@fastify/formbody": "^7.4.0",
     "countries-list": "^3.0.6",
-    "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",
     "google-libphonenumber": "^3.2.33",
     "i18next": "^23.7.8"
   },
   "devDependencies": {
+    "@fastify/formbody": "^7.4.0",
     "@types/body-parser": "^1.19.5",
     "@types/express": "^4.17.21",
     "@types/google-libphonenumber": "^7.4.30",
@@ -25,6 +24,7 @@
     "@types/twilio": "^3.19.3",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
+    "fastify": "^4.24.3",
     "jest": "^29.7.0",
     "prettier": "^3.1.1",
     "supertest": "^6.3.3",

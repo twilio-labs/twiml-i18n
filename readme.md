@@ -1,6 +1,8 @@
-# TwiML i18n Support Middleware
+# Twilio I18n Support Middleware
 
-TwiML i18n Middleware is a lightweight Express.js middleware designed to facilitate internationalization (i18n) of Twilio Markup Language (TwiML) responses for Twilio webhook endpoints. The middleware leverages i18next to provide translation capabilities based on the country associated with the incoming phone number.
+Twilio I18n is a lightweightmiddleware designed to facilitate internationalization (i18n) of Twilio Markup Language (TwiML) responses for Twilio webhook endpoints. The middleware leverages i18next to provide translation capabilities based on the country associated with the incoming phone number.
+
+It supports [Express.js](https://expressjs.com/) and [Fastify](https://fastify.io/).
 
 ## Features
 
@@ -116,7 +118,7 @@ server.listen({ port }, function (err) {
 
 ## License
 
-This project is open-source and available under the Apach 2.0 License.
+This project is open-source and available under the MIT License.
 
 ## Contributions
 
