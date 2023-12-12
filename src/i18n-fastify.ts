@@ -31,7 +31,6 @@ const myPluginCallback: FastifyPluginCallback<MyPluginOptions> = (
 ) => {
   fastify.decorateRequest("t");
 
-  // @ts-ignore Related to this issue? https://github.com/fastify/fastify/issues/4960
   fastify.addHook(
     "preHandler",
     (

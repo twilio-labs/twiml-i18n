@@ -10,7 +10,7 @@ import en from "./locale/en.json";
 import de from "./locale/de.json";
 
 const server: FastifyInstance = Fastify({
-  logger: true,
+  logger: false,
 });
 
 const port: number = +(process.env.PORT || "") || 3000;
@@ -24,7 +24,6 @@ server.register(i18nPlugin, {
   },
 });
 
-// @ts-ignore Related to this issue? https://github.com/fastify/fastify/issues/4960
 server.post(
   "/webhook",
   async (request: FastifyRequest<{ Body: BodyType }>, reply: FastifyReply) => {
