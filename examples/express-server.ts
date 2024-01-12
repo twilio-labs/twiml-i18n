@@ -21,12 +21,10 @@ server.post(
     },
   }),
   async (request: Request, reply: Response) => {
-    const req = request as LocalizedRequest
+    const req = request as LocalizedRequest;
     const twimlResponse = new twiml.MessagingResponse();
     twimlResponse.message(req.t("hello"));
-    twimlResponse.message(
-      req.t("placeholder", { number: request.body.From }),
-    );
+    twimlResponse.message(req.t("placeholder", { number: request.body.From }));
     reply.type("text/xml");
     reply.send(twimlResponse.toString());
   },

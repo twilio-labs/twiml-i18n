@@ -27,9 +27,9 @@ First, setup your internationalization resources and configure the `i18n` middle
 ```js
 // Require dependencies
 const express = require("express"),
-    bodyParser = require("body-parser"),
-    { twiml } = require("twilio"),
-    { i18n } = require("twilio-i18n");
+  bodyParser = require("body-parser"),
+  { twiml } = require("twilio"),
+  { i18n } = require("twilio-i18n");
 
 // Initialize Express
 const app = express();
@@ -37,29 +37,29 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Setup i18n middleware
 app.use(
-    i18n({
-        fallbackLng: "en",
-        resources: {
-            en: require("./locale/en.json"),
-            de: require("./locale/de.json"),
-            // Add more languages as needed
-        },
-    }),
+  i18n({
+    fallbackLng: "en",
+    resources: {
+      en: require("./locale/en.json"),
+      de: require("./locale/de.json"),
+      // Add more languages as needed
+    },
+  }),
 );
 
 // Handle incoming messages
 app.post("/webhook", async (req, res) => {
-    const twimlResponse = new twiml.MessagingResponse();
-    const localizedGreeting = req.t("greeting");
-    twimlResponse.message(localizedGreeting);
-    res.type("text/xml");
-    res.send(twimlResponse.toString());
+  const twimlResponse = new twiml.MessagingResponse();
+  const localizedGreeting = req.t("greeting");
+  twimlResponse.message(localizedGreeting);
+  res.type("text/xml");
+  res.send(twimlResponse.toString());
 });
 
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 ```
 
@@ -73,13 +73,13 @@ Example content for `./locale/en.json`:
 }
 ```
 
-
 Or for Fastify:
+
 ```js
 // Require dependencies
 const Fastify = require("fastify"),
-    { twiml } = require("twilio"),
-    { i18nPlugin } = require("twilio-i18n");
+  { twiml } = require("twilio"),
+  { i18nPlugin } = require("twilio-i18n");
 
 // Initialize Fastify
 const server = Fastify();
@@ -88,31 +88,31 @@ server.register(require("@fastify/formbody"));
 
 // Setup i18n plugin
 server.register(i18nPlugin, {
-    fallbackLng: "en",
-    resources: {
-        en: require("./locale/en.json"),
-        de: require("./locale/de.json"),
-        // Add more languages as needed
-    },
+  fallbackLng: "en",
+  resources: {
+    en: require("./locale/en.json"),
+    de: require("./locale/de.json"),
+    // Add more languages as needed
+  },
 });
 
 // Handle incoming messages
 server.post("/webhook", async (req, res) => {
-    const twimlResponse = new twiml.MessagingResponse();
-    const localizedGreeting = req.t("hello");
-    twimlResponse.message(localizedGreeting);
-    res.type("text/xml");
-    res.send(twimlResponse.toString());
+  const twimlResponse = new twiml.MessagingResponse();
+  const localizedGreeting = req.t("hello");
+  twimlResponse.message(localizedGreeting);
+  res.type("text/xml");
+  res.send(twimlResponse.toString());
 });
 
 // Start server
 const port = process.env.PORT || 3000;
 server.listen({ port }, function (err) {
-    if (err) {
-        server.log.error(err);
-        process.exit(1);
-    }
-    console.info(`Server started on ${port}`);
+  if (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
+  console.info(`Server started on ${port}`);
 });
 ```
 

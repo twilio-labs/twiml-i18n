@@ -33,6 +33,7 @@
   "scripts": {
     "start": "ts-node examples/express-server.ts",
     "tsc": "tsc ",
+    "build": "tsc && npm run prettier",
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
     "test": "jest dist/test"
   },
