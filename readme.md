@@ -1,6 +1,6 @@
-# Twilio I18n Support Middleware
+# TwiML I18n Middleware
 
-Twilio I18n is a lightweight middleware designed to facilitate the internationalization (i18n) of Twilio Markup Language (TwiML) responses for Twilio webhook endpoints. The middleware leverages i18next to provide translation capabilities based on the country associated with the incoming phone number.
+`twiml-i18n` is a lightweight middleware designed to facilitate the internationalization (i18n) of Twilio Markup Language (TwiML) responses for Twilio webhook endpoints. The middleware leverages i18next to provide translation capabilities based on the country associated with the incoming phone number.
 
 It supports [Express.js](https://expressjs.com/) and [Fastify](https://fastify.io/).
 
@@ -29,7 +29,7 @@ First, setup your internationalization resources and configure the `i18n` middle
 const express = require("express"),
   bodyParser = require("body-parser"),
   { twiml } = require("twilio"),
-  { i18n } = require("twilio-i18n");
+  { i18n } = require("twiml-i18n");
 
 // Initialize Express
 const app = express();
@@ -79,7 +79,7 @@ Or for Fastify:
 // Require dependencies
 const Fastify = require("fastify"),
   { twiml } = require("twilio"),
-  { i18nPlugin } = require("twilio-i18n");
+  { i18nPlugin } = require("twiml-i18n");
 
 // Initialize Fastify
 const server = Fastify();
@@ -115,6 +115,10 @@ server.listen({ port }, function (err) {
   console.info(`Server started on ${port}`);
 });
 ```
+
+## Other Frameworks?
+
+Are you interested in using `twiml-i18n` but you work with another framework? Feel free to open an [issue](https://github.com/twilio-labs/twilio-i18n/issues/new) to talk about it.
 
 ## License
 
