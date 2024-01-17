@@ -1,3 +1,5 @@
+// Copyright (c) 2024 Twilio Inc.
+
 import i18next, { InitOptions, TFunction } from "i18next";
 import { getCountry } from "./helper";
 import {
