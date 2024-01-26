@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const twilio = require("twilio");
 const twimlI18n = require("@twilio-labs/twiml-i18n");
-const en = require("./locale/en.json")
+const en = require("./locale/en.json");
 const de = require("./locale/de.json");
 
 const server = express();
@@ -26,7 +26,7 @@ server.post(
     twimlResponse.message(req.t("placeholder", { number: request.body.From }));
     reply.type("text/xml");
     reply.send(twimlResponse.toString());
-  }
+  },
 );
 
 server.listen({ port }, (err) => {
@@ -36,4 +36,3 @@ server.listen({ port }, (err) => {
   }
   console.info(`Server started on ${port}`);
 });
-

@@ -1,6 +1,6 @@
 {
-  "name": "twiml-i18n",
-  "version": "0.1.1",
+  "name": "@twilio-labs/twiml-i18n",
+  "version": "0.1.2",
   "description": "I18N your TwiML responses",
   "main": "index.js",
   "directories": {
