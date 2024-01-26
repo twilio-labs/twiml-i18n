@@ -5,7 +5,7 @@ import Fastify, {
 } from "fastify";
 
 import { twiml } from "twilio";
-import { i18nPlugin } from "..";
+import i18nPlugin from "../src/i18n-fastify";
 import en from "../examples/locale/en.json";
 import de from "../examples/locale/de.json";
 const server: FastifyInstance = Fastify({

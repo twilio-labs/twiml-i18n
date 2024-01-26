@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import { twiml } from "twilio";
-import { i18n, LocalizedRequest } from "..";
+import i18n from "../src/i18n-express";
 import en from "../examples/locale/en.json";
 import de from "../examples/locale/de.json";
+import { LocalizedRequest } from "..";
 
 const server = express();
 const port = process.env.PORT || 3000;
