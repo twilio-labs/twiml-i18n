@@ -1,5 +1,5 @@
 import request from "supertest";
-import server from "../examples/express-server";
+import server from "./express-server";
 
 describe("POST /webhook", () => {
   it("responds with XML and correct TwiML response for US numbers", async () => {

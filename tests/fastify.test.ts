@@ -1,5 +1,5 @@
 import request from "supertest";
-import fastify from "../examples/fastify-server";
+import fastify from "./fastify-server";
 
 describe("POST /webhook", () => {
   it("responds with XML and correct TwiML response for US numbers", async () => {
