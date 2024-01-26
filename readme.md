@@ -67,6 +67,7 @@ server.listen({ port }, (err) => {
   console.info(`Server started on ${port}`);
 });
 ```
+
 > There's also a [typescript example](./examples/express-server.ts).
 
 Ensure you have your translation files, e.g., `en.json`, `de.json`, `es.json`, containing the translations for each language.
@@ -121,6 +122,7 @@ server.listen({ port }, function (err) {
   console.info(`Server started on ${port}`);
 });
 ```
+
 > There's also a [typescript example](./examples/fastify-server.ts).
 
 ## Other Frameworks?

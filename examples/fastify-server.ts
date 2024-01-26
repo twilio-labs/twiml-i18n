@@ -33,16 +33,16 @@ server.post(
         From?: string;
       };
     }>,
-    reply: FastifyReply
+    reply: FastifyReply,
   ) => {
     const twimlResponse = new twiml.MessagingResponse();
     twimlResponse.message(request.t("hello"));
     twimlResponse.message(
-      request.t("placeholder", { number: request.body.From })
+      request.t("placeholder", { number: request.body.From }),
     );
 
     reply.type("text/xml").send(twimlResponse.toString());
-  }
+  },
 );
 
 server.listen({ port }, function (err) {

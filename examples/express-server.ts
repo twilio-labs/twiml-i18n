@@ -26,7 +26,7 @@ server.post(
     twimlResponse.message(req.t("placeholder", { number: request.body.From }));
     reply.type("text/xml");
     reply.send(twimlResponse.toString());
-  }
+  },
 );
 
 server.listen({ port }, (err?: Error) => {
