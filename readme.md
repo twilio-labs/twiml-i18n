@@ -26,42 +26,48 @@ First, setup your internationalization resources and configure the `i18n` middle
 
 ```js
 // Require dependencies
-const express = require("express"),
-  bodyParser = require("body-parser"),
-  { twiml } = require("twilio"),
-  { i18n } = require("twiml-i18n");
+const express = require("express");
+const bodyParser = require("body-parser");
+const twilio = require("twilio");
+const twimlI18n = require("@twilio-labs/twiml-i18n");
+const en = require("./locale/en.json");
+const de = require("./locale/de.json");
 
-// Initialize Express
-const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Setup i18n middleware
-app.use(
-  i18n({
-    fallbackLng: "en",
-    resources: {
-      en: require("./locale/en.json"),
-      de: require("./locale/de.json"),
-      // Add more languages as needed
-    },
-  }),
-);
+// Initialize express
+const server = express();
+const port = process.env.PORT || 3000;
+server.use(bodyParser.urlencoded({ extended: false }));
 
 // Handle incoming messages
-app.post("/webhook", async (req, res) => {
-  const twimlResponse = new twiml.MessagingResponse();
-  const localizedGreeting = req.t("greeting");
-  twimlResponse.message(localizedGreeting);
-  res.type("text/xml");
-  res.send(twimlResponse.toString());
-});
+server.post(
+  "/webhook",
+  twimlI18n.i18n({
+    fallbackLng: "en",
+    resources: {
+      en,
+      de,
+    },
+  }),
+  async (request, reply) => {
+    const req = request;
+    const twimlResponse = new twilio.twiml.MessagingResponse();
+    twimlResponse.message(req.t("hello"));
+    twimlResponse.message(req.t("placeholder", { number: request.body.From }));
+    reply.type("text/xml");
+    reply.send(twimlResponse.toString());
+  },
+);
 
 // Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+server.listen({ port }, (err) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.info(`Server started on ${port}`);
 });
 ```
+> There's also a [typescript example](./examples/express-server.ts).
 
 Ensure you have your translation files, e.g., `en.json`, `de.json`, `es.json`, containing the translations for each language.
 
@@ -115,6 +121,7 @@ server.listen({ port }, function (err) {
   console.info(`Server started on ${port}`);
 });
 ```
+> There's also a [typescript example](./examples/fastify-server.ts).
 
 ## Other Frameworks?
 

@@ -5,7 +5,7 @@ import Fastify, {
 } from "fastify";
 
 import { twiml } from "twilio";
-import i18nPlugin from "../src/i18n-fastify";
+import { i18nPlugin } from "@twilio-labs/twiml-i18n";
 import en from "./locale/en.json";
 import de from "./locale/de.json";
 
@@ -24,20 +24,27 @@ server.register(i18nPlugin, {
   },
 });
 
+//@ts-ignore
 server.post(
   "/webhook",
-  async (request: FastifyRequest<{ Body: BodyType }>, reply: FastifyReply) => {
+  async (
+    request: FastifyRequest<{
+      Body: {
+        From?: string;
+      };
+    }>,
+    reply: FastifyReply
+  ) => {
     const twimlResponse = new twiml.MessagingResponse();
     twimlResponse.message(request.t("hello"));
     twimlResponse.message(
-      request.t("placeholder", { number: request.body.From }),
+      request.t("placeholder", { number: request.body.From })
     );
 
     reply.type("text/xml").send(twimlResponse.toString());
-  },
+  }
 );
 
-// Run the server!
 server.listen({ port }, function (err) {
   if (err) {
     server.log.error(err);
@@ -45,9 +52,3 @@ server.listen({ port }, function (err) {
   }
   console.info(`Server started on ${port}`);
 });
-
-export default server;
-
-interface BodyType {
-  From?: string;
-}

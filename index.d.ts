@@ -13,3 +13,8 @@ export function i18nPlugin(
 export interface LocalizedRequest extends Request {
   t: TFunction;
 }
+export declare module "fastify" {
+  interface FastifyRequest {
+    t: TFunction;
+  }
+}
