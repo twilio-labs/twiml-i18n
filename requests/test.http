@@ -1,0 +1,19 @@
+### To self-test with a US number
+POST http://localhost:3000/webhook
+Content-Type: application/x-www-form-urlencoded
+
+From=%2B1234567890
+
+
+### To self-test with a US number
+POST http://localhost:3000/webhook
+Content-Type: application/x-www-form-urlencoded
+
+From=%2B441234567890
+
+
+### To self-test with a German number
+POST http://localhost:3000/webhook
+Content-Type: application/x-www-form-urlencoded
+
+From=%2B4915112341234
