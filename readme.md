@@ -6,9 +6,9 @@ It supports [Express.js](https://expressjs.com/) and [Fastify](https://fastify.i
 
 ## Features
 
-- Automatic detection of language based on the caller's phone number country code.
+- Automatic language detection based on the country code of the caller's phone number.
 - Integrates cleanly with Express
-- Build on [`i18next`](https://github.com/i18next/i18next) and supports translation features, including namespaces, variables, and pluralization.
+- Built on top of [`i18next`](https://github.com/i18next/i18next) and supports translation features including namespaces, variables, and pluralization.
 
 ## Installation
 
@@ -22,7 +22,7 @@ yarn add twiml-i18n-middleware
 
 ## Usage
 
-First, setup your internationalization resources and configure the `i18n` middleware for use with your Express application.
+First, set up your internationalization resources and configure the `i18n` middleware for use with your Express application.
 
 ```js
 // Require dependencies
@@ -70,7 +70,7 @@ server.listen({ port }, (err) => {
 
 > There's also a [typescript example](./examples/express-server.ts).
 
-Ensure you have your translation files, e.g., `en.json`, `de.json`, `es.json`, containing the translations for each language.
+Make sure you have your translation files, e.g., `en.json`, `de.json`, `es.json`, which contain the translations for each language.
 
 Example content for `./locale/en.json`:
 
