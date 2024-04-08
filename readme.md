@@ -15,9 +15,9 @@ It supports [Express.js](https://expressjs.com/) and [Fastify](https://fastify.i
 To install the middleware, run:
 
 ```
-npm install twiml-i18n-middleware
+npm install @twilio-labs/twiml-i18n
 # or
-yarn add twiml-i18n-middleware
+yarn add @twilio-labs/twiml-i18n
 ```
 
 ## Usage
