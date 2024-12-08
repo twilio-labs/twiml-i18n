@@ -11,7 +11,7 @@
     "countries-list": "^3.0.6",
     "fastify-plugin": "^4.5.1",
     "google-libphonenumber": "^3.2.34",
-    "i18next": "^23.7.19"
+    "i18next": "^24.0.0"
   },
   "devDependencies": {
     "@fastify/formbody": "^7.4.0",
