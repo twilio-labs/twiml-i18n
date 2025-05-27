@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "countries-list": "^3.0.6",
-    "fastify-plugin": "^4.5.1",
+    "fastify-plugin": "^5.0.0",
     "google-libphonenumber": "^3.2.34",
     "i18next": "^23.7.19"
   },
